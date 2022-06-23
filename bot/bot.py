@@ -28,13 +28,15 @@ dp = Dispatcher(bot=bot, storage=storage)
 
 
 @dp.message_handler(commands=['start'], state='*')
-async def start_handler(message):
+async def start_handler(message, state):
+    await state.reset_state(True)
     await message.answer('Привет! Я помогу тебе импортировать любые стикеры из ВК в Telegram в лучшем '
                          'качестве (512px).\n\nЧтобы создать новый пак, используй команду /new')
 
 
 @dp.message_handler(commands=['new'], state='*')
-async def new_handler(message: Message):
+async def new_handler(message: Message, state):
+    await state.reset_state(True)
     await message.answer('Хорошо, новый пак. Отправь мне ссылку на этот пак в ВК.\n\nЕсли ссылку получить проблематично'
                          ' (например, чтобы импортировать определённый стиль стикеров), отправь ID первого стикера.')
     await Form.first()
