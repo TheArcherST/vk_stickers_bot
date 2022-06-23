@@ -54,7 +54,7 @@ async def identifier_handler(message: Message, state: FSMContext):
                                     'Отправь ещё раз')
 
     await state.update_data(pack_identifier=identifier)
-    await message.answer('Теперь отправь мне длину пака.')
+    await message.answer('Отправь количество стикеров в стикерпаке.')
     await Form.next()
 
 
@@ -63,7 +63,7 @@ async def length_handler(message: Message, state: FSMContext):
     length = message.text
 
     if not length.isnumeric():
-        return await message.answer('Длина стикерпака должна быть целым числом.\n\nОтправь ещё раз')
+        return await message.answer('Размер стикерпака должен быть целым числом.\n\nОтправь ещё раз')
     else:
         length = int(length)
 
