@@ -248,10 +248,12 @@ async def start_inspection_handler(message: Message, state: FSMContext):
                                                     png_sticker=vk_sticker_id_to_uri(first_sticker))
                     await state.update_data(real_name=name)
                 else:
-                    await bot.add_sticker_to_set(user_id=message.from_user.id,
-                                                 name=name + postfix,
-                                                 emojis=message.text,
-                                                 png_sticker=vk_sticker_id_to_uri(first_sticker+data['checked_length']))
+                    asyncio.create_task(
+                        bot.add_sticker_to_set(user_id=message.from_user.id,
+                                               name=name + postfix,
+                                               emojis=message.text,
+                                               png_sticker=vk_sticker_id_to_uri(first_sticker+data['checked_length']))
+                    )
             except BadRequest as e:
                 if e.args[0] == 'Invalid sticker emojis':
                     return await message.answer('Отправь эмодзи')
