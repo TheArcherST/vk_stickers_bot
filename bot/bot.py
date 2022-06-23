@@ -187,7 +187,7 @@ async def scip_inspection_handler(message: Message, state: FSMContext):
     ]
     await asyncio.gather(*coroutines)
 
-    await status.edit_text(f'Стикерпак успешно создан!\n\n<code>https://t.me/addstickers/{name + postfix}</code>')
+    await status.edit_text(f'Стикерпак успешно создан!\n\nhttps://t.me/addstickers/{name + postfix}')
     return await state.reset_state(True)
 
 
@@ -264,7 +264,7 @@ async def start_inspection_handler(message: Message, state: FSMContext):
 
         if to_exit:
             await message.answer(f'Вы всё проверили, вот ваш стикерпак!'
-                                 f'\n\n<code>https://t.me/addstickers/{name + postfix}</code>')
+                                 f'\n\nhttps://t.me/addstickers/{name + postfix}')
             return await state.reset_state(True)
 
 
