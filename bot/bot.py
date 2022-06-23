@@ -30,8 +30,10 @@ dp = Dispatcher(bot=bot, storage=storage)
 @dp.message_handler(commands=['start'], state='*')
 async def start_handler(message, state):
     await state.reset_state(True)
-    await message.answer('Привет! Я помогу тебе импортировать любые стикеры из ВК в Telegram в лучшем '
-                         'качестве (512px).\n\nЧтобы создать новый пак, используй команду /new')
+    await message.answer(f'Привет! Я помогу тебе импортировать любые стикеры из ВК в Telegram в лучшем '
+                         f'качестве (512px).\n\nЧтобы создать новый пак, используй команду /new\n\n'
+                         f'Разработчик: @TheArcherST\n'
+                         f'Открытый исходный код: <a href="https://github.com/TheArcherST/vk_stickers_bot">Github<a>')
 
 
 @dp.message_handler(commands=['new'], state='*')
