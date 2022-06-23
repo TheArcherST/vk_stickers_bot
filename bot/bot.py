@@ -226,8 +226,7 @@ async def start_inspection_handler(message: Message, state: FSMContext):
 
     if message.text == 'Начать':
         await state.update_data(checked_length=0,
-                                accepted=0,
-                                real_name=name)
+                                accepted=0)
 
         await send_next_item(DialogMeta(message), state, first_sticker)
 
@@ -247,6 +246,7 @@ async def start_inspection_handler(message: Message, state: FSMContext):
                     name = await create_sticker_set(message.from_user.id, name=name,
                                                     name_postfix=postfix, title=title, emojis=message.text,
                                                     png_sticker=vk_sticker_id_to_uri(first_sticker))
+                    await state.update_data(real_name=name)
                 else:
                     await bot.add_sticker_to_set(user_id=message.from_user.id,
                                                  name=name + postfix,
