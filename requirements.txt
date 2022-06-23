@@ -2,3 +2,4 @@ beautifulsoup4~=4.8.2
 aiohttp~=3.7.4.post0
 aiogram~=2.15
 PyYAML~=6.0
+lxml
