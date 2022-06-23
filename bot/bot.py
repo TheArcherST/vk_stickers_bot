@@ -33,7 +33,7 @@ async def start_handler(message, state):
     await message.answer(f'Привет! Я помогу тебе импортировать любые стикеры из ВК в Telegram в лучшем '
                          f'качестве (512px).\n\nЧтобы создать новый пак, используй команду /new\n\n'
                          f'Разработчик: @TheArcherST\n'
-                         f'Открытый исходный код: <a href="https://github.com/TheArcherST/vk_stickers_bot">Github<a>')
+                         f'Открытый исходный код: <a href="https://github.com/TheArcherST/vk_stickers_bot">Github</a>')
 
 
 @dp.message_handler(commands=['new'], state='*')
